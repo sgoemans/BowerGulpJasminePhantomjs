@@ -1,0 +1,4 @@
+# Created by .gitignore support plugin (hsz.mobi)
+TEST-Jasmine__TopLevel__Suite.xml
+node_modules
+bower_components

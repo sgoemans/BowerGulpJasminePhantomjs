@@ -1,0 +1,23 @@
+{
+  "name": "BowerGulpJasminePhantomjs",
+  "version": "0.0.1",
+  "description": "Creating Gulp tasks für a Backbone application",
+  "author": "SGoemans",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sgoemans/BackboneBowerGulpJasmine/"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-jasmine": "*",
+    "gulp-jshint": "*",
+    "gulp-uglify": "*",
+    "gulp-jasmine2-phantomjs": "*",
+    "gulp-rename": "*",
+    "gulp-concat": "*",
+    "gulp-sass": "*",
+    "bower": "*",
+    "phantomjs": "*"
+  }
+}

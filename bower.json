@@ -1,0 +1,33 @@
+{
+  "name": "BowerGulpJasminePhantomjs",
+  "version": "0.0.1",
+  "authors": [
+    "John Doe <john.Doe@gmail.com>"
+  ],
+  "description": "Bower / Gulp / Jasmine / Phantomjs Template",
+  "main": "index.html",
+  "keywords": [
+    "backbone",
+    "jasmine",
+    "gulp"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "backbone": "*",
+    "backbone.localStorage": "*",
+    "underscore": "*",
+    "bootstrap": "*"
+  },
+  "devDependencies": {
+    "jasmine": "*",
+    "jasmine2-junit": "*"
+  }
+}

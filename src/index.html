@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title></title>
+    <script type="text/template" id="item-template">
+        <div class="view">
+            <input class="toggle" type="checkbox">
+            <label><%- title %></label>
+        </div>
+    </script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/backbone/backbone.js"></script>
+    <script src="../bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
+    <script src="js/namespace.js"></script>
+    <script src="js/todoModel.js"></script>
+    <script src="js/todoItem.js"></script>
+    <script src="js/todoCollection.js"></script>
+</head>
+<body>
+<div id="container">
+    <section id="todoapp">
+        <header id="header">
+            <h1>Todos</h1>
+            <input id="new-todo" placeholder="What needs to be done?">
+        </header>
+        <section id="main">
+            <ul id="todo-list"></ul>
+        </section>
+    </section>
+</div>
+<script src="js/todoView.js"></script>
+</body>
+</html>
