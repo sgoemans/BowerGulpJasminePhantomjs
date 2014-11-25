@@ -1,6 +1,3 @@
-/**
- * Created by Goemans.Stephan on 24.11.2014.
- */
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');

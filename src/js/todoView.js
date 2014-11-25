@@ -1,4 +1,4 @@
-// renders the full list of todo items calling TodoView for each one.
+// renders the full list of to do items calling TodoView for each one.
 App.Views.TodoView = Backbone.View.extend({
 	el: '#todoapp',
 	initialize: function () {
