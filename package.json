@@ -12,12 +12,16 @@
     "gulp": "*",
     "gulp-jasmine": "*",
     "gulp-jshint": "*",
-    "gulp-uglify": "*",
+    "gulp-uglify": "~1.0.1",
     "gulp-jasmine2-phantomjs": "*",
     "gulp-rename": "*",
     "gulp-concat": "*",
     "gulp-sass": "*",
     "bower": "*",
-    "phantomjs": "*"
+    "phantomjs": "*",
+    "gulp-usemin": "~0.3.8",
+    "gulp-minify-html": "~0.1.7",
+    "gulp-minify-css": "~0.3.11",
+    "gulp-rev": "~2.0.1"
   }
 }

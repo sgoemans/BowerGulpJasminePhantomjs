@@ -10,17 +10,20 @@
             <label><%- title %></label>
         </div>
     </script>
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/underscore/underscore.js"></script>
+
+    <!-- build:css style.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <!-- endbuild -->
+
+    <!-- build:js lib.js -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../bower_components/backbone/backbone.js"></script>
     <script src="../bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
-    <script src="js/namespace.js"></script>
-    <script src="js/todoModel.js"></script>
-    <script src="js/todoItem.js"></script>
-    <script src="js/todoCollection.js"></script>
+    <!-- endbuild -->
+
 </head>
 <body>
 <div id="container">
@@ -34,6 +37,12 @@
         </section>
     </section>
 </div>
+<!-- build:js1 app.js -->
+<script src="js/namespace.js"></script>
+<script src="js/todoModel.js"></script>
+<script src="js/todoItem.js"></script>
+<script src="js/todoCollection.js"></script>
 <script src="js/todoView.js"></script>
+<!-- endbuild -->
 </body>
 </html>

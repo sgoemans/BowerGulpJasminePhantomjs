@@ -2,3 +2,4 @@
 TEST-Jasmine__TopLevel__Suite.xml
 node_modules
 bower_components
+dist
