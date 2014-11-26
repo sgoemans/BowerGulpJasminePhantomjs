@@ -23,14 +23,14 @@ App.Views.TodoView = Backbone.View.extend({
 		$('#todo-list').append(view.render().el);
 	},
 	addAll: function(){
-		this.$('#todo-list').html(''); // clean the todo list
+		this.$('#todo-list').html(''); // clean the to do list
 		app.todoCollection.each(this.addOne, this);
 	},
 	newAttributes: function(){
 		return {
 			title: this.input.val().trim(),
 			completed: false
-		}
+		};
 	}
 });
 

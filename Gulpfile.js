@@ -10,24 +10,34 @@ var uglify = require('gulp-uglify');
 var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-usemin');
 var rev = require('gulp-rev');
+var jscs = require('gulp-jscs');
 
 gulp.task("lint", function() {
 	return gulp.src("src/**/*.js")
 		.pipe(jshint())
-		.pipe(jshint.reporter());
+		.pipe(jshint.reporter('jshint-stylish'))
+		.pipe(jshint.reporter('fail'));
 });
+
 gulp.task("test", function() {
 	return gulp.src("test/**/*.html").pipe(jasminePhantomJs());
 });
 
-gulp.task('build', function() {
-	gulp.src('src/*.html')
+gulp.task('jscs', function() {
+	return gulp.src('src/js/*.js')
+		.pipe(jscs({
+			"requireCurlyBraces": true
+		}));
+});
+
+gulp.task('build', [ 'lint', 'jscs' ], function() {
+	return gulp.src('src/*.html')
 		.pipe(usemin({
 			css: [minifyCss(), 'concat'],
 			html: [minifyHtml({empty: true})],
-			js: [uglify(), rev()]
+			js: [uglify()/*, rev()*/]
 		}))
 		.pipe(gulp.dest('dist/'));
 });
 // Default Task
-gulp.task('default', ['lint',  'test' ]);
+gulp.task('default', ['lint', 'jscs', 'test' ]);
