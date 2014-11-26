@@ -5,15 +5,25 @@ Now with 'usemin' support
 Goal: Develop a simple Backbone Javascript ToDo-app which allows the user to store Todos in browser local storage. Jasmine shall be used for unit testing. For automated unit testing, Gulp shall be used as a task runner and Phantomjs for headless testing (no browser). Finally, Gulp shall create a /dist folder which contains all distributables in concatenated and compressed form. In order to synchronize the reduced number of files with index.html, gulp-usemin shall be used.
 
 1) Prerequisites:
+
 Install node / npm
+
 Install bower
+
 2) Create a new project in WebStorm 'BackboneSassBowerGulpJamine'
+
 3) Create a folder structure:
+
 /src
+
 /src/js
+
 /src/scss
+
 /test
+
 /test/specs
+
 4) Create a package.json (Build modules are Gulp, various Gulp plugins, Bower, Phantomjs):
 ```
 {
@@ -368,7 +378,8 @@ App.Views.TodoView = Backbone.View.extend({
 app.todoView = new App.Views.TodoView();
 ```
 
-22) In order to concatinate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding <script> and <link> tags in the index.html file. See the new Gulpfile.js:
+22) In order to concatinate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ``` tags in the index.html file. See the new Gulpfile.js:
+
 ```javascript
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
@@ -406,12 +417,14 @@ gulp.task('default', ['lint',  'test' ]);
 ```
 
 Don’t forget to add following devDependencies in package.json and run npm install again:
+```
 "gulp-usemin": "~0.3.8",
 "gulp-minify-html": "~0.1.7",
 "gulp-minify-css": "~0.3.11",
 "gulp-rev": "~2.0.1"
+```
 
-For usemin to recognize which collection of files to concatenate and to automatically reduce the corresponding <script> or <link> tags, comments are used to denote the concatinations. See the new index.html (watch out for the block comment like <!-- build:js app.js -->):
+For usemin to recognize which collection of files to concatenate and to automatically reduce the corresponding ```<script>``` or ```<link>``` tags, comments are used to denote the concatinations. See the new index.html (watch out for  block comments like ```<!-- build:js app.js -->```):
 ```
 <!DOCTYPE html>
 <html>
