@@ -40,7 +40,8 @@ Install bower
     "gulp": "*",
     "gulp-jasmine": "*",
     "gulp-jshint": "*",
-    "gulp-uglify": "*",
+    "jshint-stylish": "~1.0.0",
+    "gulp-uglify": "~1.0.1",
     "gulp-jasmine2-phantomjs": "*",
     "gulp-rename": "*",
     "gulp-concat": "*",
@@ -253,7 +254,7 @@ SpecRunner.html:
 <script src="../src/js/todoModel.js"></script>
 ```
 
-#####17) Create a test file for the app‘s Todo items and add it to SpecRunner.html:
+#####17) Create a test file for the apps Todo items and add it to SpecRunner.html.
 ```javascript
 describe("todoItem...", function() {
    var $fixture = $("<div id='todoview-fixture'></div>");
@@ -331,7 +332,7 @@ var jasminePhantomJs = require('gulp-jasmine2-phantomjs');
 gulp.task("lint", function() {
    return gulp.src("src/**/*.js")
       .pipe(jshint())
-      .pipe(jshint.reporter());
+      .pipe(jshint.reporter('jshint-stylish'));
 });
 gulp.task("test", function() {
    return gulp.src("test/**/*.html").pipe(jasminePhantomJs());
@@ -385,7 +386,7 @@ App.Views.TodoView = Backbone.View.extend({
 app.todoView = new App.Views.TodoView();
 ```
 
-#####22) In order to concatinate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ``` tags in the index.html file. See the new Gulpfile.js:
+#####22) In order to concatenate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ``` tags in the index.html file. See the new Gulpfile.js:
 
 ```javascript
 var gulp = require('gulp');
@@ -404,7 +405,7 @@ var rev = require('gulp-rev');
 gulp.task("lint", function() {
    return gulp.src("src/**/*.js")
       .pipe(jshint())
-      .pipe(jshint.reporter());
+      .pipe(jshint.reporter('jshint-stylish'));
 });
 gulp.task("test", function() {
    return gulp.src("test/**/*.html").pipe(jasminePhantomJs());
@@ -427,11 +428,12 @@ Don’t forget to add following devDependencies in package.json and run npm inst
 ```
 "gulp-usemin": "~0.3.8",
 "gulp-minify-html": "~0.1.7",
-"gulp-minify-css": "~0.3.11",
-"gulp-rev": "~2.0.1"
+"gulp-minify-css": "~0.3.11"
 ```
 
-For usemin to recognize which collection of files to concatenate and to automatically reduce the corresponding ```<script>``` or ```<link>``` tags, comments are used to denote the concatinations. See the new index.html (watch out for  block comments like ```<!-- build:js app.js -->```):
+For usemin to recognize which collection of files to concatenate and to automatically reduce the corresponding
+ ```<script>``` or ```<link>``` tags, comments are used to denote the concatinations. See the new index.html
+  (watch out for  block comments like ```<!-- build:js app.js -->```):
 ```
 <!DOCTYPE html>
 <html>
