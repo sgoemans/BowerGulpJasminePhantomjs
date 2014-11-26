@@ -10,7 +10,7 @@ Install node / npm
 
 Install bower
 
-#####2) Create a new project in WebStorm 'BackboneSassBowerGulpJamine'
+#####2) Create a new project in WebStorm 'BowerGulpJasminePhantomjs'
 
 #####3) Create a folder structure:
 
@@ -24,7 +24,10 @@ Install bower
 
 /test/specs
 
-#####4) Create a package.json (Build modules are Gulp, various Gulp plugins, Bower, Phantomjs):
+#####4) Create a package.json
+
+Build modules are Gulp, various Gulp plugins, Bower, Phantomjs.
+
 ```
 {
   "name": "BowerGulpJasminePhantomjs",
@@ -137,7 +140,10 @@ Install bower
 </html>
 ```
 
-#####9) Create a /test/SpecRunner.html file. Make sure some jasmine2-junit libraries are included instead of the original Jasmine ones. Please note that the Todo item template must also be included:
+#####9) Create a /test/SpecRunner.html file. Make sure some jasmine2-junit libraries are included instead of the original Jasmine ones.
+
+Please note that the Todo item template must also be included.
+
 ```
 <!DOCTYPE html>
 <html>
@@ -255,6 +261,7 @@ SpecRunner.html:
 ```
 
 #####17) Create a test file for the apps Todo items and add it to SpecRunner.html.
+
 ```javascript
 describe("todoItem...", function() {
    var $fixture = $("<div id='todoview-fixture'></div>");
@@ -341,7 +348,9 @@ gulp.task("test", function() {
 gulp.task('default', ['lint', 'test']);
 ```
 
-#####20) Create a WebStorm Gulp run configuration using Gulpfile.js. Check whether a Gulp window appears in WebStorm. If not, try restarting WebStorm.
+#####20) Create a WebStorm Gulp run configuration using Gulpfile.js.
+
+Check whether a Gulp window appears in WebStorm. If not, try restarting WebStorm.
 
 #####21) Running the app using index.html requires the code for the main Backbone view:
 ```javascript
@@ -386,7 +395,12 @@ App.Views.TodoView = Backbone.View.extend({
 app.todoView = new App.Views.TodoView();
 ```
 
-#####22) In order to concatenate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ``` tags in the index.html file. See the new Gulpfile.js:
+#####22) Reduce the number of application artifacts.
+
+In order to concatenate as much files as possible and to automatically modify index.html to reflect the smaller number
+of referenced css and javascript files, a new Gulp taks can be created.
+This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ```
+tags in the index.html file. See the new Gulpfile.js:
 
 ```javascript
 var gulp = require('gulp');
@@ -435,6 +449,7 @@ For usemin to recognize which collection of files to concatenate and to automati
  ```<script>``` or ```<link>``` tags, comments are used to denote the concatinations. See the new index.html
   (watch out for  block comments like ```<!-- build:js app.js -->```):
 ```
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -485,12 +500,19 @@ For usemin to recognize which collection of files to concatenate and to automati
 </html>
 ```
 
-#####23) Now we want to add the Javascript code style checker JSCS to our gulp tasks. First, install the corresponding gulp plugin by entering npm install --save-dev gulp-jscs in a terminal window. This command installs the JSCS gulp plugin and adds a corresponding entry in package.json.
+#####23) Now we want to add the Javascript code style checker JSCS to our gulp tasks.
+
+First, install the corresponding gulp plugin by entering npm install --save-dev gulp-jscs in a terminal window.
+This command installs the JSCS gulp plugin and adds a corresponding entry in package.json.
 
 #####24) In Gulpfile.js require the gulp-jscs plugin:
+
+```
 var jscs = require('gulp-jscs');
+```
 
 … and add the corresponding task:
+
 ```javascript
 gulp.task('jscs', function() {
    return gulp.src('src/js/*.js')
@@ -500,7 +522,10 @@ gulp.task('jscs', function() {
 });
 ```
 
-#####25) The build task should only continue to its end if the lint and jscs tasks have finished successfully. To accomplish that, modify the build task as follows:
+#####25) The build task must only continue to the usemin step if the lint and jscs tasks have finished successfully.
+
+To accomplish that, modify the build task as follows:
+
 ```javascript
 gulp.task('build', [ 'lint', 'jscs' ], function() {
    return gulp.src('src/*.html')
@@ -512,6 +537,7 @@ gulp.task('build', [ 'lint', 'jscs' ], function() {
       .pipe(gulp.dest('dist/'));
 });
 ```
+
  This ensures that usemin creates the app files in the /dist folder only if the lint and jscs tasks have finished without error.
 
 Don’t forget to reload the gulp tasks in the WebStorm gulp pane.
