@@ -4,15 +4,15 @@ BowerGulpJasminePhantomjs
 ###Now with 'usemin' support
 Goal: Develop a simple Backbone Javascript ToDo-app which allows the user to store Todos in browser local storage. Jasmine shall be used for unit testing. For automated unit testing, Gulp shall be used as a task runner and Phantomjs for headless testing (no browser). Finally, Gulp shall create a /dist folder which contains all distributables in concatenated and compressed form. In order to synchronize the reduced number of files with index.html, gulp-usemin shall be used.
 
-####1) Prerequisites:
+#####1) Prerequisites:
 
 Install node / npm
 
 Install bower
 
-####2) Create a new project in WebStorm 'BackboneSassBowerGulpJamine'
+#####2) Create a new project in WebStorm 'BackboneSassBowerGulpJamine'
 
-####3) Create a folder structure:
+#####3) Create a folder structure:
 
 /src
 
@@ -24,7 +24,7 @@ Install bower
 
 /test/specs
 
-####4) Create a package.json (Build modules are Gulp, various Gulp plugins, Bower, Phantomjs):
+#####4) Create a package.json (Build modules are Gulp, various Gulp plugins, Bower, Phantomjs):
 ```
 {
   "name": "BowerGulpJasminePhantomjs",
@@ -51,7 +51,7 @@ Install bower
 }
 ```
 
-####5) Create a bower.json file:
+#####5) Create a bower.json file:
 ```
 {
   "name": "BowerGulpJasminePhantomjs",
@@ -88,11 +88,11 @@ Install bower
 }
 ```
 
-####6) In the Terminal windows of WebStorm, enter "npm install"
+#####6) In the Terminal windows of WebStorm, enter "npm install"
 
-####7) Run "bower install"
+#####7) Run "bower install"
 
-####8) Create an index.html file which includes a template for the items in the todoView:
+#####8) Create an index.html file which includes a template for the items in the todoView:
 
 ```
 <!DOCTYPE html>
@@ -136,7 +136,7 @@ Install bower
 </html>
 ```
 
-####9) Create a /test/SpecRunner.html file. Make sure some jasmine2-junit libraries are included instead of the original Jasmine ones. Please note that the Todo item template must also be included:
+#####9) Create a /test/SpecRunner.html file. Make sure some jasmine2-junit libraries are included instead of the original Jasmine ones. Please note that the Todo item template must also be included:
 ```
 <!DOCTYPE html>
 <html>
@@ -178,12 +178,12 @@ Install bower
 </html>
 ```
 
-####10) Add your first test file to the 'Spec files' section in SpecRunner.html:
+#####10) Add your first test file to the 'Spec files' section in SpecRunner.html:
 ```
     <script src="specs/namespace.spec.js"></script>
 ```
 
-####11) Create tests for the chosen namespace
+#####11) Create tests for the chosen namespace
 ```javascript
 describe("Namespace…", function() {
    it("must include views, models, and collections", function() {
@@ -195,9 +195,9 @@ describe("Namespace…", function() {
 });
 ```
 
-####12) While in the SpecRunner.html WebStorm editor pane, start Chrome to see the Jasmine output.
+#####12) While in the SpecRunner.html WebStorm editor pane, start Chrome to see the Jasmine output.
 
-####13) Create the Javascript namespace for the app
+#####13) Create the Javascript namespace for the app
 ```javascript
 var App = App || {};
 App.Views = {};
@@ -207,12 +207,12 @@ App.Routers = {};
 var app = app || {};
 ```
 
-####14) Add the namespace file to the 'Application modules' section in SpecRunner.html and refresh the Chrome Jamsine output page to see the tests succeed.
+#####14) Add the namespace file to the 'Application modules' section in SpecRunner.html and refresh the Chrome Jamsine output page to see the tests succeed.
 ```
 <script src="../src/js/namespace.js"></script>
 ```
 
-####15) Create tests for the Backbone model and add it to SpecRunner.html:
+#####15) Create tests for the Backbone model and add it to SpecRunner.html:
 ```javascript
 describe("todoModel...", function() {
    it(" should exist", function() {
@@ -232,7 +232,7 @@ SpecRunner.html:
 ```
 Refresh the Chrome Jasmine output page.
 
-####16) Create the Backbone model javascript file, add it to the SpecRunner.html file, and see if the tests now succeed.
+#####16) Create the Backbone model javascript file, add it to the SpecRunner.html file, and see if the tests now succeed.
 ```javascript
 App.Models.TodoModel = Backbone.Model.extend({
    defaults: {
@@ -253,7 +253,7 @@ SpecRunner.html:
 <script src="../src/js/todoModel.js"></script>
 ```
 
-####17) Create a test file for the app‘s Todo items and add it to SpecRunner.html:
+#####17) Create a test file for the app‘s Todo items and add it to SpecRunner.html:
 ```javascript
 describe("todoItem...", function() {
    var $fixture = $("<div id='todoview-fixture'></div>");
@@ -289,7 +289,7 @@ SpecRunner.html:
     <script src="specs/todoItem.spec.js"></script>
 ```
 
-####18) Create the corresponding Backbone itemView, add it to the SpecRunner.html file, and see if the tests now succeed.
+#####18) Create the corresponding Backbone itemView, add it to the SpecRunner.html file, and see if the tests now succeed.
 ```javascript
 App.Views.TodoItem = Backbone.View.extend({
    tagName: 'li',
@@ -310,7 +310,7 @@ SpecRunner.html:
 <script src="../src/js/todoItem.js"></script>
 ```
 
-####19) For headless testing (no browser) with Phantomjs, create a Gulpfile.js which defines three tasks: 
+#####19) For headless testing (no browser) with Phantomjs, create a Gulpfile.js which defines three tasks: 
 
 lint -> gulp-jshint (optional)
 
@@ -340,9 +340,9 @@ gulp.task("test", function() {
 gulp.task('default', ['lint', 'test']);
 ```
 
-####20) Create a WebStorm Gulp run configuration using Gulpfile.js. Check whether a Gulp window appears in WebStorm. If not, try restarting WebStorm.
+#####20) Create a WebStorm Gulp run configuration using Gulpfile.js. Check whether a Gulp window appears in WebStorm. If not, try restarting WebStorm.
 
-####21) Running the app using index.html requires the code for the main Backbone view:
+#####21) Running the app using index.html requires the code for the main Backbone view:
 ```javascript
 // renders the full list of todo items calling TodoView for each one.
 App.Views.TodoView = Backbone.View.extend({
@@ -385,7 +385,7 @@ App.Views.TodoView = Backbone.View.extend({
 app.todoView = new App.Views.TodoView();
 ```
 
-####22) In order to concatinate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ``` tags in the index.html file. See the new Gulpfile.js:
+#####22) In order to concatinate as much files as possible and to automatically modify index.html to reflect the smaller number of referenced css and javascript files, a new Gulp taks can be created. This task uses the usemin gulp plugin to concatenate files and to replace the corresponding ```<script> or <link> ``` tags in the index.html file. See the new Gulpfile.js:
 
 ```javascript
 var gulp = require('gulp');
@@ -483,9 +483,9 @@ For usemin to recognize which collection of files to concatenate and to automati
 </html>
 ```
 
-####23) Now we want to add the Javascript code style checker JSCS to our gulp tasks. First, install the corresponding gulp plugin by entering npm install --save-dev gulp-jscs in a terminal window. This command installs the JSCS gulp plugin and adds a corresponding entry in package.json.
+#####23) Now we want to add the Javascript code style checker JSCS to our gulp tasks. First, install the corresponding gulp plugin by entering npm install --save-dev gulp-jscs in a terminal window. This command installs the JSCS gulp plugin and adds a corresponding entry in package.json.
 
-####24) In Gulpfile.js require the gulp-jscs plugin:
+#####24) In Gulpfile.js require the gulp-jscs plugin:
 var jscs = require('gulp-jscs');
 
 … and add the corresponding task:
@@ -498,7 +498,7 @@ gulp.task('jscs', function() {
 });
 ```
 
-####25) The build task should only continue to its end if the lint and jscs tasks have finished successfully. To accomplish that, modify the build task as follows:
+#####25) The build task should only continue to its end if the lint and jscs tasks have finished successfully. To accomplish that, modify the build task as follows:
 ```javascript
 gulp.task('build', [ 'lint', 'jscs' ], function() {
    return gulp.src('src/*.html')
