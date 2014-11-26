@@ -15,6 +15,7 @@ Install bower
 /test
 /test/specs
 4) Create a package.json (Build modules are Gulp, various Gulp plugins, Bower, Phantomjs):
+```
 {
   "name": "BowerGulpJasminePhantomjs",
   "version": "0.0.1",
@@ -38,8 +39,10 @@ Install bower
     "phantomjs": "*"
   }
 }
+```
 
-5) Create a bower.json file:
+5) Create a bower.json file:
+```
 {
   "name": "BowerGulpJasminePhantomjs",
   "version": "0.0.1",
@@ -73,10 +76,12 @@ Install bower
     "jasmine2-junit": "*"
   }
 }
+```
 
 6) In the Terminal windows of WebStorm, enter "npm install"
 7) Run "bower install"
 8) Create an index.html file which includes a template for the items in the todoView:
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,8 +121,10 @@ Install bower
 <script src="js/todoView.js"></script>
 </body>
 </html>
+```
 
 9) Create a /test/SpecRunner.html file. Make sure some jasmine2-junit libraries are included instead of the original Jasmine ones. Please note that the Todo item template must also be included:
+```
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -156,9 +163,12 @@ Install bower
 <body>
 </body>
 </html>
+```
 
 10) Add your first test file to the 'Spec files' section in SpecRunner.html:
+```
     <script src="specs/namespace.spec.js"></script>
+```
 
 11) Create tests for the chosen namespace
 ```javascript
@@ -203,7 +213,7 @@ describe("todoModel...", function() {
 ```
 
 SpecRunner.html:
-```javascript
+```
     <script src="specs/todoModel.spec.js"></script>
 ```
 Refresh the Chrome Jasmine output page.
@@ -225,7 +235,7 @@ App.Models.TodoModel = Backbone.Model.extend({
 ```
 
 SpecRunner.html:
-```javascript
+```
 <script src="../src/js/todoModel.js"></script>
 ```
 
@@ -261,7 +271,7 @@ describe("todoItem...", function() {
 ```
 
 SpecRunner.html:
-```javascript
+```
     <script src="specs/todoItem.spec.js"></script>
 ```
 
@@ -282,7 +292,7 @@ App.Views.TodoItem = Backbone.View.extend({
 ```
 
 SpecRunner.html:
-```javascript
+```
 <script src="../src/js/todoItem.js"></script>
 ```
 
