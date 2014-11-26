@@ -204,7 +204,7 @@ var app = app || {};
 ```
 
 14) Add the namespace file to the 'Application modules' section in SpecRunner.html and refresh the Chrome Jamsine output page to see the tests succeed.
-```javascript
+```
 <script src="../src/js/namespace.js"></script>
 ```
 
@@ -307,8 +307,11 @@ SpecRunner.html:
 ```
 
 19) For headless testing (no browser) with Phantomjs, create a Gulpfile.js which defines three tasks: 
+
 lint -> gulp-jshint (optional)
+
 test -> gulp-jasmine2-phantomjs
+
 default -> lint, test
 
 ```javascript
