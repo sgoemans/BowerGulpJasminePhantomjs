@@ -1,6 +1,6 @@
 # Created by .gitignore support plugin (hsz.mobi)
 .idea
-TEST-Jasmine__TopLevel__Suite.xml
 node_modules
 bower_components
 dist
+TEST*

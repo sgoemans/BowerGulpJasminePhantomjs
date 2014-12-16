@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
-var jasmine = require('gulp-jasmine');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var jasminePhantomJs = require('gulp-jasmine2-phantomjs');
@@ -9,7 +8,6 @@ var usemin = require('gulp-usemin');
 var uglify = require('gulp-uglify');
 var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-usemin');
-var rev = require('gulp-rev');
 var jscs = require('gulp-jscs');
 
 gulp.task("lint", function() {
